@@ -6,6 +6,7 @@ WORKDIR /app
 RUN apk add --no-cache mariadb-connector-c-dev
 RUN apk update && apk add python3 gcc g++ python3-dev mariadb-dev build-base && pip3 install mysqlclient && apk del python3-dev mariadb-dev build-base
 RUN apk add netcat-openbsd
+RUN /usr/local/bin/python -m pip install --upgrade pip
 COPY requirements.txt /app/
 RUN pip install -r requirements.txt --no-cache-dir
 COPY . /app/
