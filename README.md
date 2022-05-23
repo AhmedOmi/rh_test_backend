@@ -30,3 +30,8 @@ sudo  docker-compose up
 ```bash
 localhost:8080/
 ```
+
+### API DOCUMENTATION SWAGET
+```bash
+https://app.swaggerhub.com/apis-docs/AhmedOmi/test_rh/1.0.0#/
+```
