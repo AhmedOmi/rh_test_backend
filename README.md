@@ -25,3 +25,8 @@ sudo  docker-compose up
 ```bash
  sudo docker-compose run app python manage.py createsuperuser
 ```
+
+### link
+```bash
+localhost:8080/
+```
