@@ -6,6 +6,7 @@
     {% csrf_token %}
     {{form.as_p}}
     <input class="btn btn-info" type="submit" value="Send">
+    <a href="{%url 'list_employees'%}" class="btn btn-danger">cancel</a>
 </form>
 <script type="text/javascript">
     document.getElementById('id_team').style.display="none";
