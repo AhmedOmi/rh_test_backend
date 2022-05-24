@@ -6,7 +6,8 @@ from . import views
 
 urlpatterns = [
     path('', views.list, name='list_employees'),
-    path('success',TemplateView.as_view(template_name='success.html')),
+    path('success', TemplateView.as_view(template_name='success.html')),
+    path('show/<id>/', views.show, name="show_details"),
     path('add/', views.CreateEmployee, name='create_employee'),
     path('employees/', views.EmployeesList.as_view()),
     path('employees/<int:pk>/', views.EmployeeDetails.as_view()),
