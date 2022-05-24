@@ -1,5 +1,4 @@
 from django.db import models
-from sqlalchemy import false
 
 
 class Employee(models.Model):
@@ -12,12 +11,12 @@ class Employee(models.Model):
     name = models.CharField(max_length=30)
     surname = models.CharField(max_length=30)
     birthday = models.DateField()
-    hired_on = models.DateTimeField()
+    hired_on = models.DateField()
     position = models.CharField(max_length=30)
     email = models.CharField(max_length=30)
     phone_number = models.CharField(max_length=30)
     is_manager = models.BooleanField(default=False)
-    team = models.CharField(max_length=15, choices=TEAMS, null=True)
+    team = models.CharField(max_length=15, choices=TEAMS, null=True, blank=True)
 
     def __str__(self):
         return self.name

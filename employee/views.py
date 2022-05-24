@@ -1,11 +1,36 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import Http404
-
 from rest_framework.views import APIView
+from django.http import HttpResponse
 from rest_framework.response import Response
 from rest_framework import status
+from employee.forms import EmployeeForm
 from .models import Employee
 from .serializers import EmployeeSerializer
+from django.template import loader
+
+
+def list(request):
+    list_employees = Employee.objects.all()
+    template = loader.get_template('list.html')
+    context = {
+        'list_employees': list_employees,
+    }
+    return HttpResponse(template.render(context, request))
+
+
+def CreateEmployee(request):
+    if request.method == "GET":
+        form = EmployeeForm
+        context = {
+            'form': form,
+        }
+        return render(request, "add.html", context)
+    else:
+        form = EmployeeForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('list_employees')
 
 
 class EmployeesList(APIView):
