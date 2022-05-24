@@ -2,5 +2,33 @@
 {% block title %}show details{% endblock %}
 {% block content %}
 <h1>details of employees</h1>
+<div class="row card border">
+    {{data.name}}
+</div>
+<div class="row card border">
+    {{data.surname}}
+</div>
+<div class="row card border">
+    {{data.birthday}}
+</div>
+<div class="row card border">
+    {{data.hired_on}}
+</div>
+<div class="row card border">
+    {{data.position}}
+</div><div class="row card border">
+    {{data.email}}
+</div>
+<div class="row card border">
+    {{data.phone_number}}
+</div>
+<div class="row card border">
+    {{data.position}}
+</div>
+<div class="row card border">
+    {{data.is_manager}}
+</div><div class="row card border">
+    {{data.team}}
+</div>
 
 {% endblock %}
