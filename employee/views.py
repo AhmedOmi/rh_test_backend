@@ -4,6 +4,7 @@ from rest_framework.views import APIView
 from django.http import HttpResponse
 from rest_framework.response import Response
 from rest_framework import status
+import employee
 from employee.forms import EmployeeForm
 from .models import Employee
 from .serializers import EmployeeSerializer
@@ -32,6 +33,10 @@ def CreateEmployee(request):
             form.save()
         return redirect('list_employees')
 
+def show(request,id):
+    context ={}
+    context["data"] = Employee.objects.get(id=id)
+    return render(request, "details.html", context)
 
 class EmployeesList(APIView):
     """
