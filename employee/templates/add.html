@@ -2,7 +2,19 @@
 {% block title %}add new employees{% endblock %}
 {% block content %}
 <h1>Add New employees</h1>
-<p class="important">
-    Welcome to my awesome homepage.
-</p>
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input class="btn btn-info" type="submit" value="Send">
+</form>
+<script type="text/javascript">
+    document.getElementById('id_team').style.display="none";
+    document.getElementById('id_is_manager').addEventListener('change', function() {
+      if (this.checked) {
+            document.getElementById('id_team').style.display = "inline";
+        } else {
+           document.getElementById('id_team').style.display = "none";
+        }
+    })
+</script>
 {% endblock %}
